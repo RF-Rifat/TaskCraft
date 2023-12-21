@@ -32,7 +32,7 @@ const TABLE_HEAD = [
   "Action",
 ];
 
-export function Home() {
+export function TaskManager() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [userData, setUserData] = useState([]);
@@ -264,4 +264,4 @@ export function Home() {
   );
 }
 
-export default Home;
+export default TaskManager;

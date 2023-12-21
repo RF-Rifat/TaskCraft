@@ -4,12 +4,18 @@ import {
   UserIcon,
   UserPlusIcon,
   ArrowRightOnRectangleIcon,
+  HomeIcon,
 } from "@heroicons/react/24/solid";
 import { Navbar, Footer } from "@/widgets/layout";
 import routes from "@/Route/routes";
 
 export function Auth() {
   const navbarRoutes = [
+    {
+      name: "home",
+      path: "/home",
+      icon: HomeIcon,
+    },
     {
       name: "dashboard",
       path: "/dashboard/home",
@@ -22,12 +28,12 @@ export function Auth() {
     },
     {
       name: "sign up",
-      path: "/auth/sign-up",
+      path: "/auth/signUp",
       icon: UserPlusIcon,
     },
     {
       name: "sign in",
-      path: "/auth/sign-in",
+      path: "/auth/signIn",
       icon: ArrowRightOnRectangleIcon,
     },
   ];
