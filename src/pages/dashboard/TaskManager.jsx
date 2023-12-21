@@ -89,7 +89,7 @@ export function TaskManager() {
         ))}
       </div>
 
-      {loading ? (
+      {/* {loading ? (
         <Spinner></Spinner>
       ) : (
         <div className="mb-4 grid grid-cols-1 gap-6">
@@ -259,7 +259,9 @@ export function TaskManager() {
             <EmptyData></EmptyData>
           )}
         </div>
-      )}
+      )} */}
+
+      
     </div>
   );
 }

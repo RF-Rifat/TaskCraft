@@ -10,7 +10,7 @@ import {
 import { Profile, Tables, TaskManager } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import PrivateRoute from "./PrivateRoute";
-import DonorReq from "@/pages/dashboard/DonorReq";
+
 
 
 const icon = {
@@ -38,12 +38,6 @@ export const routes = [
         name: "User list",
         path: "/tables",
         element: <Tables />,
-      },
-      {
-        icon: <HandRaisedIcon {...icon} />,
-        name: "Donor Request",
-        path: "/donorList",
-        element: <DonorReq />,
       },
     ],
   },

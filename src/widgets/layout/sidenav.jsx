@@ -97,7 +97,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
 
 Sidenav.defaultProps = {
   brandImg: "/img/logo-ct.png",
-  brandName: "Blood Bond",
+  brandName: "Task Craft",
 };
 
 Sidenav.propTypes = {

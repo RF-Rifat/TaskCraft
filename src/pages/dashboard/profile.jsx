@@ -52,7 +52,7 @@ export function Profile() {
     };
     try {
       const response = await axios.put(
-        `https://blood-bond-server-nine.vercel.app/user/${_id}`,
+        `http://localhost:5000/user/${_id}`,
         updatedUser
       );
       console.log("User updated successfully:", response.data);
@@ -87,7 +87,7 @@ export function Profile() {
                   variant="small"
                   className="font-normal text-blue-gray-600"
                 >
-                  New User / Blood Bond
+                  New User / Task Manager
                 </Typography>
               </div>
             </div>

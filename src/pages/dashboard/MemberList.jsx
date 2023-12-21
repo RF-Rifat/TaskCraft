@@ -143,7 +143,7 @@ export function Tables() {
                         />
                         <div className="flex flex-col">
                           <Typography
-                            variant="h3"
+                            variant="h5"
                             color="blue-gray"
                             className="font-normal"
                           >
@@ -156,7 +156,7 @@ export function Tables() {
                     <td className={classes}>
                       <div className="flex flex-col">
                         <Typography
-                          variant="small"
+                          variant="h5"
                           color="blue-gray"
                           className="font-normal"
                         >

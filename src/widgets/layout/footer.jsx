@@ -42,16 +42,15 @@ export function Footer({ brandName, brandLink, routes }) {
 }
 
 Footer.defaultProps = {
-  brandName: "BloodBond",
+  brandName: "Task Craft",
   brandLink: "https://www.facebook.com/rfrifat6344",
   routes: [
-    { name: "BloodBond", path: "https://www.facebook.com/rfrifat6344" },
+    { name: "Task Craft", path: "https://www.facebook.com/rfrifat6344" },
     {
-      name: "About Us",
-      path: "https://www.facebook.com/rfrifat6344",
+      name: "About Me",
+      path: "https://www.linkedin.com/in/md-rifadul-islam-rifad-90aa612a5",
     },
-    { name: "Blog", path: "https://www.facebook.com/rfrifat6344" },
-    { name: "License", path: "https://www.facebook.com/rfrifat6344" },
+    { name: "Github", path: "https://github.com/RF-Rifat" },
   ],
 };
 

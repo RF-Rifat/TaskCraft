@@ -84,10 +84,10 @@ export function Navbar({ brandName, routes, action }) {
 }
 
 Navbar.defaultProps = {
-  brandName: "Blood Bond",
+  brandName: "Task Manager",
   action: (
     <a
-      href="https://www.facebook.com/rfrifat6344"
+      href="https://www.linkedin.com/in/md-rifadul-islam-rifad-90aa612a5"
       target="_blank"
     >
       <Button variant="gradient" size="sm" fullWidth>

@@ -10,8 +10,7 @@ import { AuthProvider } from "./Provider";
 import { useContext, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-
-
+import Navbar from "../Home/Navbar";
 
 export function SignIn() {
   const navigate = useNavigate();
@@ -33,9 +32,8 @@ export function SignIn() {
         toast.success("Your Email is successfully logIn");
         try {
           const response = await axios.put(
-            `https://blood-bond-server-nine.vercel.app/user/update-status/${email}`,
+            `http://localhost:5000/user/update-status/${email}`,
             {
-
               status: true,
             }
           );
@@ -108,7 +106,7 @@ export function SignIn() {
           </div>
         ));
         console.log(result.user);
-        navigate("/");
+        navigate("/dashboard/profile");
       })
       .catch((error) => {
         toast.error("Failed");

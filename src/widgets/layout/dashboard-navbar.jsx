@@ -47,7 +47,7 @@ export function DashboardNavbar() {
   const handleLogOut = async () => {
     try {
       const response = await axios.put(
-        `https://blood-bond-server-nine.vercel.app/user/${_id}/update-status`,
+        `http://localhost:5000/user/${_id}/update-status`,
         {
           status: false,
         }
