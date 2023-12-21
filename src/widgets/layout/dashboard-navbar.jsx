@@ -168,7 +168,7 @@ export function DashboardNavbar() {
             <MenuHandler>
               <IconButton variant="text" color="blue-gray" className="relative">
                 <BellIcon className="h-5 w-5 text-blue-gray-500" />
-                <span class="absolute rounded-full py-1 px-1 text-xs font-medium content-[''] leading-none grid place-items-center top-[4%] right-[2%] translate-x-2/4 -translate-y-2/4 bg-red-500 text-white min-w-[12px] min-h-[12px]">
+                <span className="absolute rounded-full py-1 px-1 text-xs font-medium content-[''] leading-none grid place-items-center top-[4%] right-[2%] translate-x-2/4 -translate-y-2/4 bg-red-500 text-white min-w-[12px] min-h-[12px]">
                   {donorsReq.length}
                 </span>
               </IconButton>

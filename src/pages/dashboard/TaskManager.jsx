@@ -22,6 +22,7 @@ import { statisticsCardsData } from "@/data";
 import axios from "axios";
 import Spinner from "@/Shared/Spinner";
 import EmptyData from "@/Shared/EmptyData";
+import TaskManagerDashboard from "./TaskManager/TaskManagerDashboard";
 const apiUrl = "https://blood-bond-server-nine.vercel.app";
 
 const TABLE_HEAD = [
@@ -261,7 +262,7 @@ export function TaskManager() {
         </div>
       )} */}
 
-      
+      <TaskManagerDashboard/>
     </div>
   );
 }
