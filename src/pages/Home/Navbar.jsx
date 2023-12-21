@@ -137,7 +137,7 @@ function Navbar() {
           </ul>
           <div className="mt-6 flex items-center gap-4">
             <Link to="/auth/signIn">
-              <Button color={isScrolling ? "gray" : "black"} variant="text">
+              <Button color={isScrolling ? "gray" : "black"} >
                 Log in
               </Button>
             </Link>

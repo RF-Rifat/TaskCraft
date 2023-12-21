@@ -11,8 +11,7 @@ import { Profile, Tables, TaskManager } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import PrivateRoute from "./PrivateRoute";
 import DonorReq from "@/pages/dashboard/DonorReq";
-import Fund from "@/pages/dashboard/Fund";
-import Home from "@/pages/Home/Home";
+
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -29,7 +28,7 @@ export const routes = [
         element: <Profile />,
       },
       {
-        icon: <HomeIcon {...icon} />,
+        icon: <TableCellsIcon {...icon} />,
         name: "Task-Manager",
         path: "/TaskManager",
         element: <TaskManager />,
@@ -39,12 +38,6 @@ export const routes = [
         name: "User list",
         path: "/tables",
         element: <Tables />,
-      },
-      {
-        icon: <InformationCircleIcon {...icon} />,
-        name: "Fund Collection",
-        path: "/fund",
-        element: <Fund />,
       },
       {
         icon: <HandRaisedIcon {...icon} />,

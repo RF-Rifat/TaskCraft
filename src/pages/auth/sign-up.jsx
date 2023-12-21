@@ -11,8 +11,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./Provider";
-import { upazilas } from "@/data/upazilas-data";
-import { districts } from "@/data/district-data";
 
 export function SignUp() {
   // auth providers
@@ -27,13 +25,9 @@ export function SignUp() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
-  const [bloodGroup, setBloodGroup] = useState("");
-  const [district, setDistrict] = useState("");
-  const [upazila, setUpazila] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const serverURL = "https://blood-bond-server-nine.vercel.app";
-  const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
+  const serverURL = "http://localhost:5000";
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -62,9 +56,6 @@ export function SignUp() {
       email,
       name,
       avatar,
-      bloodGroup,
-      district,
-      upazila,
       password,
       status: true,
     };
@@ -112,7 +103,7 @@ export function SignUp() {
           </div>
         ));
         console.log(res);
-        navigate("/");
+        navigate("/dashboard/profile");
       })
       .catch((error) => console.error(error));
   }
@@ -395,81 +386,6 @@ export function SignUp() {
                 color="blue-gray"
                 className="-mb-3 font-medium"
               >
-                Blood Group
-              </Typography>
-              <Select
-                label="Select Blood Group"
-                value={bloodGroup}
-                animate={{
-                  mount: { y: 0 },
-                  unmount: { y: 25 },
-                }}
-                onChange={(selectedValue) => setBloodGroup(selectedValue)}
-              >
-                {bloodGroups.map((group) => (
-                  <Option key={group} value={group}>
-                    {group}
-                  </Option>
-                ))}
-              </Select>
-            </div>
-
-            <div className="mb-1 flex flex-col gap-4">
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="-mb-3 font-medium"
-              >
-                District
-              </Typography>
-              <Select
-                label="Select District"
-                animate={{
-                  mount: { y: 0 },
-                  unmount: { y: 25 },
-                }}
-                value={district}
-                onChange={(selectedValue) => setDistrict(selectedValue)}
-              >
-                {districts.map((d) => (
-                  <Option key={d} value={d}>
-                    {d}
-                  </Option>
-                ))}
-              </Select>
-            </div>
-
-            <div className="mb-1 flex flex-col gap-4">
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="-mb-3 font-medium"
-              >
-                Upazila
-              </Typography>
-              <Select
-                label="Select Upazila"
-                animate={{
-                  mount: { y: 0 },
-                  unmount: { y: 25 },
-                }}
-                value={upazila}
-                onChange={(selectedValue) => setUpazila(selectedValue)}
-              >
-                {upazilas.map((u) => (
-                  <Option key={u} value={u}>
-                    {u}
-                  </Option>
-                ))}
-              </Select>
-            </div>
-
-            <div className="mb-1 flex flex-col gap-4">
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="-mb-3 font-medium"
-              >
                 Password
               </Typography>
               <Input
@@ -591,7 +507,7 @@ export function SignUp() {
             className="text-center text-blue-gray-500 font-medium mt-4"
           >
             Already have an account?
-            <Link to="/auth/sign-in" className="text-gray-900 ml-1">
+            <Link to="/auth/signIn" className="text-gray-900 ml-1">
               Sign in
             </Link>
           </Typography>

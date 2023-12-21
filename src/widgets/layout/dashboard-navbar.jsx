@@ -127,7 +127,7 @@ export function DashboardNavbar() {
             <Bars3Icon strokeWidth={3} className="h-6 w-6 text-blue-gray-500" />
           </IconButton>
           {!user ? (
-            <Link to="/auth/sign-in">
+            <Link to="/auth/signIn">
               <Button
                 variant="text"
                 color="blue-gray"

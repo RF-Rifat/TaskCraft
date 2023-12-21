@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import axios from "axios";
-const apiUrl = "https://blood-bond-server-nine.vercel.app/user";
+const apiUrl = "http://localhost:5000/user";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 

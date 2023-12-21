@@ -10,9 +10,8 @@ import { AuthProvider } from "./Provider";
 import { useContext, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import EmptyData from "@/Shared/EmptyData";
-import useFetchData from "@/data/Users";
-const apiUrl = "https://blood-bond-server-nine.vercel.app/user";
+
+
 
 export function SignIn() {
   const navigate = useNavigate();
@@ -277,7 +276,7 @@ export function SignIn() {
               className="text-center text-blue-gray-500 font-medium mt-4"
             >
               Not registered?
-              <Link to="/auth/sign-up" className="text-gray-900 ml-1">
+              <Link to="/auth/signUp" className="text-gray-900 ml-1">
                 Create account
               </Link>
             </Typography>

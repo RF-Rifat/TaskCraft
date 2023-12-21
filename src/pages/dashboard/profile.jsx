@@ -26,19 +26,12 @@ import axios from "axios";
 import Spinner from "@/Shared/Spinner";
 import EmptyData from "@/Shared/EmptyData";
 const apiUrl = "https://blood-bond-server-nine.vercel.app";
-import { upazilas } from "@/data/upazilas-data";
-import { districts } from "@/data/district-data";
 import { UserContext } from "../auth/UserProvider";
-
-const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
 export function Profile() {
   const [userEmail, setEmail] = useState("");
   const [userName, setName] = useState("");
   const [userAvatar, setAvatar] = useState("");
-  const [userBloodGroup, setBloodGroup] = useState("");
-  const [userDistrict, setDistrict] = useState("");
-  const [userUpazila, setUpazila] = useState("");
   const { user } = useContext(AuthProvider);
   const { email } = user || {};
   const filteredUser = useContext(UserContext);
@@ -47,8 +40,7 @@ export function Profile() {
     return <EmptyData></EmptyData>;
   }
 
-  const { _id, name, avatar, bloodGroup, district, upazila, password } =
-    filteredUser || {};
+  const { _id, name, avatar, password } = filteredUser || {};
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -56,9 +48,6 @@ export function Profile() {
       email,
       name: userName,
       avatar: userAvatar,
-      bloodGroup: userBloodGroup,
-      district: userDistrict,
-      upazila: userUpazila,
       password,
     };
     try {
@@ -124,11 +113,11 @@ export function Profile() {
           <div className="gird-cols-1 mb-12 grid gap-12 px-4 lg:grid-cols-2">
             <ProfileInfoCard
               title="Profile Information"
-              description={`Hi, I'm ${name}  Alec Thompson, Decisions: If you can't decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term .`}
+              description={`Hello, ${name}, Welcome to Task-Craft! Organize your life, boost your productivity, and achieve your goals with our intuitive task management platform. We're thrilled to have you on board, ready to embark on a journey of efficiency and success.
+              `}
               details={{
                 "first name": `${name}`,
-                "Blood-Group": `${bloodGroup}`,
-                location: `UpaZila- ${upazila}, District- ${district}`,
+
                 social: (
                   <div className="flex items-center gap-4">
                     <i className="fa-brands fa-facebook text-blue-700" />
@@ -230,83 +219,6 @@ export function Profile() {
                           className: "before:content-none after:content-none",
                         }}
                       />
-                    </div>
-
-                    <div className="mb-1 flex flex-col gap-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="-mb-3 font-medium"
-                      >
-                        Blood Group
-                      </Typography>
-                      <Select
-                        label={bloodGroup}
-                        value={userBloodGroup}
-                        animate={{
-                          mount: { y: 0 },
-                          unmount: { y: 25 },
-                        }}
-                        onChange={(selectedValue) =>
-                          setBloodGroup(selectedValue)
-                        }
-                      >
-                        {bloodGroups.map((group) => (
-                          <Option key={group} value={group}>
-                            {group}
-                          </Option>
-                        ))}
-                      </Select>
-                    </div>
-
-                    <div className="mb-1 flex flex-col gap-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="-mb-3 font-medium"
-                      >
-                        District
-                      </Typography>
-                      <Select
-                        label={district}
-                        animate={{
-                          mount: { y: 0 },
-                          unmount: { y: 25 },
-                        }}
-                        value={userDistrict}
-                        onChange={(selectedValue) => setDistrict(selectedValue)}
-                      >
-                        {districts.map((d) => (
-                          <Option key={d} value={d}>
-                            {d}
-                          </Option>
-                        ))}
-                      </Select>
-                    </div>
-
-                    <div className="mb-1 flex flex-col gap-4">
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="-mb-3 font-medium"
-                      >
-                        Upazila
-                      </Typography>
-                      <Select
-                        label={upazila}
-                        animate={{
-                          mount: { y: 0 },
-                          unmount: { y: 25 },
-                        }}
-                        value={userUpazila}
-                        onChange={(selectedValue) => setUpazila(selectedValue)}
-                      >
-                        {upazilas.map((u) => (
-                          <Option key={u} value={u}>
-                            {u}
-                          </Option>
-                        ))}
-                      </Select>
                     </div>
 
                     <div className="col-span-2">

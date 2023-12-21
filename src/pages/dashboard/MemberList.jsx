@@ -19,7 +19,7 @@ import {
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthProvider } from "../auth/Provider";
-const apiUrl = "https://blood-bond-server-nine.vercel.app";
+const apiUrl = "http://localhost:5000";
 
 const TABS = [
   {
@@ -36,7 +36,7 @@ const TABS = [
   },
 ];
 
-const TABLE_HEAD = ["Member", "Location", "Status", "Blood Group", "Action"];
+const TABLE_HEAD = ["Member", "Email", "Status", "Action"];
 
 export function Tables() {
   const { user } = useContext(AuthProvider);
@@ -121,9 +121,6 @@ export function Tables() {
                   _id,
                   avatar,
                   name,
-                  bloodGroup,
-                  district,
-                  upazila,
                   email,
                   status,
                 },
@@ -146,19 +143,13 @@ export function Tables() {
                         />
                         <div className="flex flex-col">
                           <Typography
-                            variant="small"
+                            variant="h3"
                             color="blue-gray"
                             className="font-normal"
                           >
                             {name}
                           </Typography>
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal opacity-70"
-                          >
-                            {email}
-                          </Typography>
+                          
                         </div>
                       </div>
                     </td>
@@ -169,15 +160,9 @@ export function Tables() {
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {upazila}
+                          {email}
                         </Typography>
-                        <Typography
-                          variant="small"
-                          color="blue-gray"
-                          className="font-normal opacity-70"
-                        >
-                          {district}
-                        </Typography>
+
                       </div>
                     </td>
                     <td className={classes}>
@@ -189,15 +174,6 @@ export function Tables() {
                           color={status ? "green" : "blue-gray"}
                         />
                       </div>
-                    </td>
-                    <td className={classes}>
-                      <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
-                      >
-                        {bloodGroup}
-                      </Typography>
                     </td>
                     <td className={classes}>
                       <Tooltip content="Edit User">

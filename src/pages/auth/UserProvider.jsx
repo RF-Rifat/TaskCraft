@@ -4,7 +4,7 @@ import { AuthProvider } from "./Provider";
 import Spinner from "@/Shared/Spinner";
 export const UserContext = createContext(null);
 
-const apiUrl = "https://blood-bond-server-nine.vercel.app";
+const apiUrl = "http://localhost:5000";
 const UserProvider = ({ children }) => {
   const { user } = useContext(AuthProvider);
   const { email } = user || {};
