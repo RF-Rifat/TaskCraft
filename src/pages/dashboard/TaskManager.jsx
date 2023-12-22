@@ -26,14 +26,10 @@ import EmptyData from "@/Shared/EmptyData";
 import TaskManagerDashboard from "./TaskManager/TaskManagerDashboard";
 const apiUrl = "https://blood-bond-server-nine.vercel.app";
 
-
-
 export function TaskManager() {
-
-
   return (
-    <div className="mt-12">
-      <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
+    <div className="mb-20">
+      {/* <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
         {statisticsCardsData.map(({ icon, title, footer, ...rest }) => (
           <StatisticsCard
             key={title}
@@ -50,7 +46,7 @@ export function TaskManager() {
             }
           />
         ))}
-      </div>
+      </div> */}
       <TaskManagerDashboard />
     </div>
   );

@@ -43,7 +43,6 @@ export function Profile() {
   const { _id, name, avatar, password } = filteredUser || {};
 
   const handleUpdate = async (e) => {
-    e.preventDefault();
     const updatedUser = {
       email,
       name: userName,
