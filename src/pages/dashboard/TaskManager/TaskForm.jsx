@@ -9,35 +9,30 @@ import {
   option,
 } from "@material-tailwind/react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const TaskForm = () => {
   const { register, handleSubmit } = useForm();
-
-  // const onSubmit = async (data) => {
-  //   try {
-  //     const response = await axios.post("https://task-manager-server-woad.vercel.app/taskList", data);
-  //     console.log("Data submitted successfully:", response.data);
-  //   } catch (error) {
-  //     console.error("Error submitting data:", error);
-  //   }
-  // };
+  
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
-      console.log("Submitting data:", data);
       const response = await axios.post(
         "https://task-manager-server-woad.vercel.app/taskList",
         data
       );
       console.log("Data submitted successfully:", response.data);
+      toast.success("Task Added Successfully")
     } catch (error) {
       console.error("Error submitting data:", error);
     }
   };
 
   return (
-    <form className="space-y-3 p-8" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="space-y-3 p-8 border border-red-200 my-4 rounded-md"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="grid grid-cols-2 gap-4">
         <label>
           Title:
