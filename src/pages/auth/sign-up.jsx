@@ -27,7 +27,7 @@ export function SignUp() {
   const [avatar, setAvatar] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const serverURL = "http://localhost:5000";
+  const serverURL = "https://task-manager-server-woad.vercel.app";
   const handleRegister = async (e) => {
     e.preventDefault();
 

@@ -32,7 +32,7 @@ export function SignIn() {
         toast.success("Your Email is successfully logIn");
         try {
           const response = await axios.put(
-            `http://localhost:5000/user/update-status/${email}`,
+            `https://task-manager-server-woad.vercel.app/user/update-status/${email}`,
             {
               status: true,
             }

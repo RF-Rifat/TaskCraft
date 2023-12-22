@@ -6,21 +6,38 @@ import {
   Select,
   Button,
   Textarea,
-  Option,
+  option,
 } from "@material-tailwind/react";
+import axios from "axios";
 
-const TaskForm = ({ onSubmit }) => {
-  const { register, handleSubmit, setValue, watch } = useForm();
+const TaskForm = () => {
+  const { register, handleSubmit } = useForm();
 
-  const handleFormSubmit = (data) => {
-    onSubmit(data);
+  // const onSubmit = async (data) => {
+  //   try {
+  //     const response = await axios.post("https://task-manager-server-woad.vercel.app/taskList", data);
+  //     console.log("Data submitted successfully:", response.data);
+  //   } catch (error) {
+  //     console.error("Error submitting data:", error);
+  //   }
+  // };
+
+  const onSubmit = async (data) => {
     console.log(data);
+    try {
+      console.log("Submitting data:", data);
+      const response = await axios.post(
+        "https://task-manager-server-woad.vercel.app/taskList",
+        data
+      );
+      console.log("Data submitted successfully:", response.data);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
   };
 
-  const priorityLevel = watch("priorityLevel"); // Watch the value of priorityLevel
-
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-3 p-8">
+    <form className="space-y-3 p-8" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid grid-cols-2 gap-4">
         <label>
           Title:
@@ -35,23 +52,23 @@ const TaskForm = ({ onSubmit }) => {
 
       <div className="grid grid-cols-2 gap-4">
         <label>
-          Task Due Date:
-          <Input type="date" {...register("taskDueDate", { required: true })} />
+          Task End Time :
+          <Input type="time" {...register("taskEndTime", { required: true })} />
         </label>
 
-        <label>
+        <label className="grid">
           Priority Level:
-          <Select
+          <select
             {...register("priorityLevel", { required: true })}
             color="teal"
-            label="Set Priority"
             defaultValue={"Set You Task Priority"}
-            {...register("taskPriority", { required: true })}
+            name="priorityLevel"
+            className="border rounded p-2"
           >
-            <Option value="low">Low</Option>
-            <Option value="moderate">Moderate</Option>
-            <Option value="high">High</Option>
-          </Select>
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+          </select>
         </label>
       </div>
 

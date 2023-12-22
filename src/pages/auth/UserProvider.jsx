@@ -4,7 +4,7 @@ import { AuthProvider } from "./Provider";
 import Spinner from "@/Shared/Spinner";
 export const UserContext = createContext(null);
 
-const apiUrl = "http://localhost:5000";
+const apiUrl = "https://task-manager-server-woad.vercel.app";
 const UserProvider = ({ children }) => {
   const { user } = useContext(AuthProvider);
   const { email } = user || {};

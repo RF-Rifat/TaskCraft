@@ -51,7 +51,7 @@ export function Profile() {
     };
     try {
       const response = await axios.put(
-        `http://localhost:5000/user/${_id}`,
+        `https://task-manager-server-woad.vercel.app/user/${_id}`,
         updatedUser
       );
       console.log("User updated successfully:", response.data);

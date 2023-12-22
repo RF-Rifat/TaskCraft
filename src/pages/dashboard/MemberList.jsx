@@ -19,7 +19,7 @@ import {
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthProvider } from "../auth/Provider";
-const apiUrl = "http://localhost:5000";
+const apiUrl = "https://task-manager-server-woad.vercel.app";
 
 const TABS = [
   {
@@ -115,77 +115,64 @@ export function Tables() {
             </tr>
           </thead>
           <tbody>
-            {usersData.map(
-              (
-                {
-                  _id,
-                  avatar,
-                  name,
-                  email,
-                  status,
-                },
-                index
-              ) => {
-                const isLast = index === usersData.length - 1;
-                const classes = isLast
-                  ? "p-4"
-                  : "p-4 border-b border-blue-gray-50";
+            {usersData.map(({ _id, avatar, name, email, status }, index) => {
+              const isLast = index === usersData.length - 1;
+              const classes = isLast
+                ? "p-4"
+                : "p-4 border-b border-blue-gray-50";
 
-                return (
-                  <tr key={_id}>
-                    <td className={classes}>
-                      <div className="flex items-center gap-3">
-                        <Avatar
-                          src={avatar}
-                          alt={name}
-                          size="md"
-                          variant="rounded"
-                        />
-                        <div className="flex flex-col">
-                          <Typography
-                            variant="h5"
-                            color="blue-gray"
-                            className="font-normal"
-                          >
-                            {name}
-                          </Typography>
-                          
-                        </div>
-                      </div>
-                    </td>
-                    <td className={classes}>
+              return (
+                <tr key={_id}>
+                  <td className={classes}>
+                    <div className="flex items-center gap-3">
+                      <Avatar
+                        src={avatar}
+                        alt={name}
+                        size="md"
+                        variant="rounded"
+                      />
                       <div className="flex flex-col">
                         <Typography
                           variant="h5"
                           color="blue-gray"
                           className="font-normal"
                         >
-                          {email}
+                          {name}
                         </Typography>
-
                       </div>
-                    </td>
-                    <td className={classes}>
-                      <div className="w-max">
-                        <Chip
-                          variant="ghost"
-                          size="sm"
-                          value={status ? "online" : "offline"}
-                          color={status ? "green" : "blue-gray"}
-                        />
-                      </div>
-                    </td>
-                    <td className={classes}>
-                      <Tooltip content="Edit User">
-                        <IconButton variant="text">
-                          <PencilIcon className="h-4 w-4" />
-                        </IconButton>
-                      </Tooltip>
-                    </td>
-                  </tr>
-                );
-              }
-            )}
+                    </div>
+                  </td>
+                  <td className={classes}>
+                    <div className="flex flex-col">
+                      <Typography
+                        variant="h5"
+                        color="blue-gray"
+                        className="font-normal"
+                      >
+                        {email}
+                      </Typography>
+                    </div>
+                  </td>
+                  <td className={classes}>
+                    <div className="w-max">
+                      <Chip
+                        variant="ghost"
+                        size="sm"
+                        value={status ? "online" : "offline"}
+                        color={status ? "green" : "blue-gray"}
+                      />
+                    </div>
+                  </td>
+                  <td className={classes}>
+                    <Tooltip content="Edit User">
+                      <IconButton variant="text">
+                        <PencilIcon className="h-4 w-4" />
+                      </IconButton>
+                    </Tooltip>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </CardBody>

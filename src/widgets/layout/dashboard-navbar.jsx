@@ -47,7 +47,7 @@ export function DashboardNavbar() {
   const handleLogOut = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/user/${_id}/update-status`,
+        `https://task-manager-server-woad.vercel.app/user/${_id}/update-status`,
         {
           status: false,
         }
