@@ -41,7 +41,7 @@ export function SignIn() {
         } catch (error) {
           console.error("Error updating user status:", error.message);
         }
-        navigate("/");
+        navigate("/dashboard/profile");
         toast.custom((t) => (
           <div
             className={`${

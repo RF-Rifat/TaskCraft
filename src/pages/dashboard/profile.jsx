@@ -81,7 +81,7 @@ export function Profile() {
               </Badge>
               <div>
                 <Typography variant="h5" color="blue-gray" className="mb-1">
-                  Richard Davis
+                  {name}
                 </Typography>
                 <Typography
                   variant="small"

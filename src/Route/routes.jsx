@@ -11,8 +11,6 @@ import { Profile, Tables, TaskManager } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
 import PrivateRoute from "./PrivateRoute";
 
-
-
 const icon = {
   className: "w-5 h-5 text-inherit",
 };
@@ -25,19 +23,31 @@ export const routes = [
         icon: <UserCircleIcon {...icon} />,
         name: "profile",
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "Task-Manager",
         path: "/TaskManager",
-        element: <TaskManager />,
+        element: (
+          <PrivateRoute>
+            <TaskManager />
+          </PrivateRoute>
+        ),
       },
       {
         icon: <TableCellsIcon {...icon} />,
         name: "User list",
-        path: "/tables",
-        element: <Tables />,
+        path: "/userList",
+        element: (
+          <PrivateRoute>
+            <Tables />
+          </PrivateRoute>
+        ),
       },
     ],
   },
