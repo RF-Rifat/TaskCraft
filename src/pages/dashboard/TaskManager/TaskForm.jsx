@@ -1,5 +1,5 @@
 // TaskForm.js
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import {
   Input,
@@ -10,19 +10,23 @@ import {
 } from "@material-tailwind/react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AuthProvider } from "@/pages/auth/Provider";
 
 const TaskForm = () => {
   const { register, handleSubmit } = useForm();
-  
+
+  const { user } = useContext(AuthProvider);
+  const { email } = user || {};
+  console.log(email);
 
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
         "https://task-manager-server-woad.vercel.app/taskList",
-        data
+        { ...data, email }
       );
       console.log("Data submitted successfully:", response.data);
-      toast.success("Task Added Successfully")
+      toast.success("Task Added Successfully");
     } catch (error) {
       console.error("Error submitting data:", error);
     }
