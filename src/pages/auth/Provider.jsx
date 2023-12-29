@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 
 import axios from "axios";
-import auth from "./firebase";
+import {auth} from "./firebase";
 
 export const AuthProvider = createContext(null);
 

@@ -22,12 +22,15 @@ import { statisticsCardsData } from "@/data";
 import axios from "axios";
 import Spinner from "@/Shared/Spinner";
 import EmptyData from "@/Shared/EmptyData";
+import { motion } from "framer-motion";
 
 import TaskManagerDashboard from "./TaskManager/TaskManagerDashboard";
 import { Toaster } from "react-hot-toast";
-
+import TextEditor from "./Texteditor";
 
 export function TaskManager() {
+ 
+
   return (
     <div className="mb-20">
       <Toaster />
@@ -50,6 +53,9 @@ export function TaskManager() {
         ))}
       </div> */}
       <TaskManagerDashboard />
+
+      {/* text editor */}
+      {/* <TextEditor></TextEditor> */}
     </div>
   );
 }

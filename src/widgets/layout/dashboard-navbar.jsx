@@ -156,6 +156,7 @@ export function DashboardNavbar() {
                 Log Out
               </Button>
               <IconButton
+                onClick={() => handleLogOut()}
                 variant="text"
                 color="blue-gray"
                 className="grid xl:hidden"

@@ -143,16 +143,16 @@ export function Configurator() {
         </div>
         <div className="text-center">
           <Typography variant="h6" color="blue-gray">
-            Thank you for sharing ❤️
+            Check Out  My Social Media ❤️
           </Typography>
           <div className="mt-4 flex justify-center gap-2">
             <Button variant="gradient" className="flex items-center gap-2">
-              <i className="fa-brands fa-twitter text-white" />
-              Tweet
+              <i className="fa-brands fa-linkedin text-white" />
+              Linkedin
             </Button>
             <Button variant="gradient" className="flex items-center gap-2">
               <i className="fa-brands fa-facebook text-white" />
-              Share
+              FaceBook
             </Button>
           </div>
         </div>

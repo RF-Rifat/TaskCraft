@@ -5,9 +5,11 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Task = ({ tasks }) => {
   const [todo, setTodo] = useState([]);
+
   const [ongoing, setOngoing] = useState([]);
   const [complete, setComplete] = useState([]);
 
@@ -43,9 +45,12 @@ const Task = ({ tasks }) => {
                   To dos
                 </h4>
               </div>
-              <div className="w-full space-y-2 items-center justify-between rounded-2xl bg-white p-3 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+              <motion.div
+                drag="x"
+                className="w-full space-y-2 items-center justify-between rounded-2xl bg-white p-3 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none"
+              >
                 {todo.map((task, idx) => (
-                  <div className="flex" key={idx}>
+                  <motion.div drag="x" className="flex" key={idx}>
                     <div className="flex items-center">
                       <div className="ml-4">
                         <p className="mt-2 text-sm text-gray-600">
@@ -69,9 +74,9 @@ const Task = ({ tasks }) => {
                         </IconButton>
                       </Tooltip>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
